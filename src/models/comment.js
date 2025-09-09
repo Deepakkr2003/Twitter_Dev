@@ -1,5 +1,5 @@
 // models/comment.js
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const commentSchema = new mongoose.Schema({
     content: {
@@ -13,4 +13,4 @@ const commentSchema = new mongoose.Schema({
 
 // Change 'comment' to 'Comment' to match the name you're using elsewhere
 const Comment = mongoose.model('comment', commentSchema);
-module.exports = Comment;
+export default Comment;

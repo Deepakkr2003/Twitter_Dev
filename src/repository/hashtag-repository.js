@@ -1,4 +1,4 @@
-const Hashtag = require('../models/hashtags');
+import Hashtag from '../models/hashtags.js'
 
 class HashtagRepository{
 
@@ -8,8 +8,6 @@ class HashtagRepository{
             return tag;
         } catch (error) {
             console.log(error);
-            // It's good practice to re-throw the error so the calling
-            // function can handle it.
             throw error; 
         }
     }
@@ -17,7 +15,7 @@ class HashtagRepository{
     async bulkCreate(data){
         try {
             const tags = await Hashtag.insertMany(data);
-            return tags; // You should return the result of insertMany
+            return tags; 
         } catch (error) {
             console.log(error);
             throw error;
@@ -56,7 +54,6 @@ class HashtagRepository{
         }
     }
 
-    
 }
 
-module.exports=HashtagRepository;
+export default HashtagRepository;
