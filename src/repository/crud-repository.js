@@ -25,7 +25,7 @@ class CrudRepository{
 
     async get(id){
         try {
-            const result = await this.model.findById(data);
+            const result = await this.model.findById(id);
             return result;
         } catch (error) {
             console.log("Something went wrong in crud repo");
@@ -33,7 +33,7 @@ class CrudRepository{
         }
     }
 
-    async getAll(id){
+    async getAll(){
         try {
             const result = await this.model.find({});
             return result;
