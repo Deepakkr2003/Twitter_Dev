@@ -20,9 +20,15 @@ const commentSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         refPath:'onModel',
-    }
+    },
+    comments:[
+        {
+           type:mongoose.Schema.Types.ObjectId,
+            ref:'Comment', 
+        }
+    ]
 }, { timestamps: true });
 
 // Change 'comment' to 'Comment' to match the name you're using elsewhere
-const Comment = mongoose.model('comment', commentSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 export default Comment;

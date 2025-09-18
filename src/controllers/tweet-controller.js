@@ -12,18 +12,32 @@ export const createTweet = async (req,res)=>{
             err: {}
         });
     } catch (error) {
-        // 🚨 IMPORTANT: Log the full error for server-side debugging
         console.error(error); 
-        
-        // ✅ Safely handle the error and send a clean message to the client
         return res.status(400).json({
             success: false,
             message: 'Something went wrong.',
             data: {},
-            err: {
-                message: error.message, // Send a safe, specific message
-                stack: process.env.NODE_ENV === 'development' ? error.stack : {} // Optional: send stack in dev mode
-            }
+            err: error
+        });
+    }
+}
+
+export const getTweet = async (req,res) => {
+    try {
+        const response = await tweetService.get(req.params.id);
+        return res.status(201).json({
+            success: true,
+            message: 'Successfully fetched a tweet',
+            data: response,
+            err: {}
+        });
+    } catch (error) {
+        console.error(error); 
+        return res.status(400).json({
+            success: false,
+            message: 'Something went wrong.',
+            data: {},
+            err: error
         });
     }
 }
