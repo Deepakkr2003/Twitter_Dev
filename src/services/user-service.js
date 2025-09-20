@@ -1,6 +1,6 @@
 import {UserRepository} from '../repository/index.js';
 
-class USerService{
+class UserService{
     constructor() {
         this.userRepository=new UserRepository();
     }
@@ -45,4 +45,4 @@ class USerService{
     }
 }
 
-export default USerService;
+export default UserService;
